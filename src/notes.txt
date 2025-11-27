@@ -3,17 +3,6 @@ mvn clean compile
 mvn exec:java "-Dexec.mainClass=com.jeopardyProject.GameRunner"
 mvn clean compile exec:java "-Dexec.mainClass=com.jeopardyProject.GameRunner"
 
-[ERROR]   LoggerTest.testGenerateReportsWithoutException:185 » NullPointer
-[ERROR]   LoggerTest.testGenerateTurnReport:67 » NullPointer
-[ERROR]   LoggerTest.testInitTurnReport:62 » NullPointer
-[ERROR]   LoggerTest.testTurnReportFileNameExpected:81 » NullPointer
-[ERROR]   SelectCategoryActionTest.testSelectCategoryMatchesStartOfWord:38 » NullPointer
-[ERROR]   SelectCategoryActionTest.testSelectCategoryNoMatch:45 » NullPointer
-[ERROR]   SelectQuestionActionTest.testSelectNullQuestion:42 » NullPointer
-[ERROR]   SelectQuestionActionTest.testSelectQuestionByValue:34 » NullPointer
-[ERROR]   SelectCategoryActionTest.testSelectCategoryNoMatch:45 » NullPointer
-[ERROR]   SelectQuestionActionTest.testSelectNullQuestion:42 » NullPointer
-[ERROR]   SelectQuestionActionTest.testSelectQuestionByValue:34 » NullPointer
-[ERROR]   SelectQuestionActionTest.testSelectNullQuestion:42 » NullPointer
-[ERROR]   SelectQuestionActionTest.testSelectQuestionByValue:34 » NullPointer
-[ERROR]   SelectQuestionActionTest.testSelectQuestionByValue:34 » NullPointer
+mvn javadoc:javadoc
+mvn clean install
+

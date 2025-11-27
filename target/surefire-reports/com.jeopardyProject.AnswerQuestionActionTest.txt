@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.jeopardyProject.AnswerQuestionActionTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 s -- in com.jeopardyProject.AnswerQuestionActionTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.407 s -- in com.jeopardyProject.AnswerQuestionActionTest

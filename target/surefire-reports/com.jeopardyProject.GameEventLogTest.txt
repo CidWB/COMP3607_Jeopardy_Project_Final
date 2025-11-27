@@ -1,17 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.jeopardyProject.GameEventLogTest
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.036 s <<< FAILURE! -- in com.jeopardyProject.GameEventLogTest
-com.jeopardyProject.GameEventLogTest.testSetTimestamp -- Time elapsed: 2.015 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: not equal but was: <2025-11-27T06:50:13>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertNotEquals.failEqual(AssertNotEquals.java:277)
-	at org.junit.jupiter.api.AssertNotEquals.assertNotEquals(AssertNotEquals.java:263)
-	at org.junit.jupiter.api.AssertNotEquals.assertNotEquals(AssertNotEquals.java:258)
-	at org.junit.jupiter.api.Assertions.assertNotEquals(Assertions.java:2819)
-	at com.jeopardyProject.GameEventLogTest.testSetTimestamp(GameEventLogTest.java:101)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.031 s -- in com.jeopardyProject.GameEventLogTest

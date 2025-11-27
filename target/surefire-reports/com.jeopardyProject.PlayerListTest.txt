@@ -1,17 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.jeopardyProject.PlayerListTest
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.055 s <<< FAILURE! -- in com.jeopardyProject.PlayerListTest
-com.jeopardyProject.PlayerListTest.testAddMultiplePlayers -- Time elapsed: 0.011 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
-	at com.jeopardyProject.PlayerListTest.testAddMultiplePlayers(PlayerListTest.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in com.jeopardyProject.PlayerListTest

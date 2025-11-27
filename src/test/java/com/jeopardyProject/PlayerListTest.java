@@ -36,12 +36,12 @@ public class PlayerListTest {
         playerList.addPlayer("Player1");
         playerList.addPlayer("Player2");
         playerList.addPlayer("Player3");
-        
+
         ArrayList<Player> players = playerList.getAllPlayers();
         assertEquals(3, players.size());
-        assertTrue("Player1".equalsIgnoreCase(players.remove(0).getPlayerId()));
-        assertTrue("Player2".equalsIgnoreCase(players.remove(1).getPlayerId()));
-        assertTrue("Player3".equalsIgnoreCase(players.remove(2).getPlayerId()));
+        assertTrue("Player1".equalsIgnoreCase(players.get(0).getPlayerId()));
+        assertTrue("Player2".equalsIgnoreCase(players.get(1).getPlayerId()));
+        assertTrue("Player3".equalsIgnoreCase(players.get(2).getPlayerId()));
     }
 
     @Test

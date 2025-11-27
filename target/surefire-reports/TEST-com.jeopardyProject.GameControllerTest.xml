@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.jeopardyProject.GameControllerTest" time="0.072" tests="8" errors="0" skipped="0" failures="2">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.jeopardyProject.GameControllerTest" time="0.151" tests="20" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\jdk\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\cidne\AppData\Local\Temp\surefire6956452112094634113\surefirebooter-20251127065011839_3.jar C:\Users\cidne\AppData\Local\Temp\surefire6956452112094634113 2025-11-27T06-50-10_952-jvmRun1 surefire-20251127065011839_1tmp surefire_0-20251127065011839_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\cidne\AppData\Local\Temp\surefire4914818006790894946\surefirebooter-20251127103944387_3.jar C:\Users\cidne\AppData\Local\Temp\surefire4914818006790894946 2025-11-27T10-39-43_776-jvmRun1 surefire-20251127103944387_1tmp surefire_0-20251127103944387_2tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\target\test-classes;C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\target\classes;C:\Users\cidne\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\cidne\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\cidne\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\cidne\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\cidne\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\cidne\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\cidne\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\cidne\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\cidne\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\cidne\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\cidne\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\cidne\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\cidne\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\cidne\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\cidne\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\cidne"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\cidne\AppData\Local\Temp\surefire6956452112094634113\surefirebooter-20251127065011839_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\cidne\AppData\Local\Temp\surefire4914818006790894946\surefirebooter-20251127103944387_3.jar"/>
     <property name="sun.boot.class.path" value="C:\jdk\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\jre\lib\resources.jar;C:\jdk\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\jre\lib\rt.jar;C:\jdk\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\jre\lib\sunrsasign.jar;C:\jdk\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\jre\lib\jsse.jar;C:\jdk\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\jre\lib\jce.jar;C:\jdk\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\jre\lib\charsets.jar;C:\jdk\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\jre\lib\jfr.jar;C:\jdk\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -61,45 +61,24 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testGetInstanceMultipleCalls" classname="com.jeopardyProject.GameControllerTest" time="0.002"/>
-  <testcase name="testStartGame" classname="com.jeopardyProject.GameControllerTest" time="0.029">
-    <system-out><![CDATA[Case ID: Game_001 | Player ID: System | Action: Start Game | Timestamp: 2025-11-27T06:50:13 | Result: true | 
-]]></system-out>
-  </testcase>
-  <testcase name="testSetCategoryAndGetCategory" classname="com.jeopardyProject.GameControllerTest" time="0.002"/>
-  <testcase name="testStartGameIncrementsCaseId" classname="com.jeopardyProject.GameControllerTest" time="0.013">
-    <failure message="expected: &lt;Game_001&gt; but was: &lt;Game_001002&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <Game_001> but was: <Game_001002>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
-	at com.jeopardyProject.GameControllerTest.testStartGameIncrementsCaseId(GameControllerTest.java:52)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-]]></failure>
-    <system-out><![CDATA[Case ID: Game_001002 | Player ID: System | Action: Start Game | Timestamp: 2025-11-27T06:50:13 | Result: true | 
-]]></system-out>
-  </testcase>
-  <testcase name="testGetCaseId" classname="com.jeopardyProject.GameControllerTest" time="0.007">
-    <failure message="expected: &lt;Game_001&gt; but was: &lt;Game_001002003&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <Game_001> but was: <Game_001002003>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
-	at com.jeopardyProject.GameControllerTest.testGetCaseId(GameControllerTest.java:61)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-]]></failure>
-    <system-out><![CDATA[Case ID: Game_001002003 | Player ID: System | Action: Start Game | Timestamp: 2025-11-27T06:50:13 | Result: true | 
-]]></system-out>
-  </testcase>
-  <testcase name="testSetQuestionAndGetQuestion" classname="com.jeopardyProject.GameControllerTest" time="0.002"/>
-  <testcase name="testGetInstanceSingleton" classname="com.jeopardyProject.GameControllerTest" time="0.002"/>
-  <testcase name="testGetInstance" classname="com.jeopardyProject.GameControllerTest" time="0.0"/>
+  <testcase name="testSetQuestionNull" classname="com.jeopardyProject.GameControllerTest" time="0.004"/>
+  <testcase name="testMultipleGamesIncrementCaseId" classname="com.jeopardyProject.GameControllerTest" time="0.074"/>
+  <testcase name="testGetInstanceMultipleCalls" classname="com.jeopardyProject.GameControllerTest" time="0.005"/>
+  <testcase name="testSetCategoryNull" classname="com.jeopardyProject.GameControllerTest" time="0.001"/>
+  <testcase name="testStartGame" classname="com.jeopardyProject.GameControllerTest" time="0.002"/>
+  <testcase name="testControllerQuestionCategorySync" classname="com.jeopardyProject.GameControllerTest" time="0.0"/>
+  <testcase name="testGetPlayersNull" classname="com.jeopardyProject.GameControllerTest" time="0.002"/>
+  <testcase name="testCaseIdBeforeStart" classname="com.jeopardyProject.GameControllerTest" time="0.0"/>
+  <testcase name="testCategoryInitiallyNull" classname="com.jeopardyProject.GameControllerTest" time="0.0"/>
+  <testcase name="testControllerStateAfterReset" classname="com.jeopardyProject.GameControllerTest" time="0.006"/>
+  <testcase name="testSetCategoryAndGetCategory" classname="com.jeopardyProject.GameControllerTest" time="0.0"/>
+  <testcase name="testStartGameIncrementsCaseId" classname="com.jeopardyProject.GameControllerTest" time="0.014"/>
+  <testcase name="testMultipleQuestionsInController" classname="com.jeopardyProject.GameControllerTest" time="0.0"/>
+  <testcase name="testSetQuestionsAndGetQuestions" classname="com.jeopardyProject.GameControllerTest" time="0.0"/>
+  <testcase name="testGetCaseId" classname="com.jeopardyProject.GameControllerTest" time="0.006"/>
+  <testcase name="testQuestionsInitiallyNull" classname="com.jeopardyProject.GameControllerTest" time="0.001"/>
+  <testcase name="testQuestionInitiallyNull" classname="com.jeopardyProject.GameControllerTest" time="0.001"/>
+  <testcase name="testSetQuestionAndGetQuestion" classname="com.jeopardyProject.GameControllerTest" time="0.001"/>
+  <testcase name="testGetInstanceSingleton" classname="com.jeopardyProject.GameControllerTest" time="0.001"/>
+  <testcase name="testGetInstance" classname="com.jeopardyProject.GameControllerTest" time="0.001"/>
 </testsuite>

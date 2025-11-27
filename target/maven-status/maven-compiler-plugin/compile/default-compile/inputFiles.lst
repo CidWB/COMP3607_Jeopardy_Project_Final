@@ -1,10 +1,13 @@
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Builder\LogBuilder.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Command\Action.java
+C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Command\ActionResult.java
+C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Command\ActionType.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Command\AnswerQuestionAction.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Command\SelectCategoryAction.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Command\SelectQuestionAction.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\GameConfig.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\GameController.java
+C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\GameView.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Logs\GameEventLog.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Logs\Logger.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Player.java
@@ -15,6 +18,7 @@ C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\State\PlayerState.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\State\SelectCategoryState.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\State\SelectQuestionState.java
+C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\State\StateRegistry.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\State\WaitingState.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Template\CsvFileReader.java
 C:\Users\cidne\OneDrive\Documents\School\UWI Proper\BSc Comp Sci\COMP 3607\COMP3607_Jeopardy_Project\src\main\java\com\jeopardyProject\Game\Template\FileReaderTemplate.java

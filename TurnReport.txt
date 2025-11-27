@@ -1,0 +1,28 @@
+
+Final Scores:
+Alice: 0
+================================
+END OF REPORT
+
+Final Scores:
+Player1: 0
+================================
+END OF REPORT
+JEOPARDY PROGRAMMING GAME REPORT
+================================
+Case ID: Game_001
+Players: Alice, 
+Gameplay Summary:
+================================JEOPARDY PROGRAMMING GAME REPORT
+================================
+Case ID: Game_001
+Players: Alice, 
+Gameplay Summary:
+================================
+Final Scores:
+Alice: 0
+================================
+END OF REPORT
+
+
+Turn 1: Player1 selected Science for 200 pts

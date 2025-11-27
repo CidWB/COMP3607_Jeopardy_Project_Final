@@ -7,17 +7,18 @@ import java.util.HashMap;
 
 import com.jeopardyProject.Game.GameController;
 import com.jeopardyProject.Game.Question;
+import com.jeopardyProject.Game.QuestionList;
 
 public class GameControllerTest {
     private GameController controller;
 
-    @BeforeEach     // get new instance so that separate tests are true unit tests
+    @BeforeEach
     void setUp(){
-        controller = null;
+        GameController.reset();
         controller = GameController.getInstance();
     }
 
-    @Test 
+    @Test
     void testGetInstance(){
         assertNotNull(controller);
     }
@@ -25,7 +26,7 @@ public class GameControllerTest {
     @Test
     void testGetInstanceSingleton(){
         GameController controller2 = GameController.getInstance();
-        assertSame(controller, controller2, "Same singleton instance");
+        assertSame(controller, controller2);
     }
 
     @Test
@@ -33,7 +34,7 @@ public class GameControllerTest {
         GameController c1 = GameController.getInstance();
         GameController c2 = GameController.getInstance();
         GameController c3 = GameController.getInstance();
-        
+
         assertSame(c1, c2);
         assertSame(c2, c3);
     }
@@ -42,17 +43,16 @@ public class GameControllerTest {
     void testStartGame(){
         controller.startGame();
         String caseId = controller.getCaseId();
-        assertNotNull(caseId, "caseId should not be null after startGame");
+        assertNotNull(caseId);
     }
 
     @Test
     void testStartGameIncrementsCaseId(){
         controller.startGame();
         String firstId = controller.getCaseId();
-        assertEquals("Game_001", firstId);  // this is fine since it would otherwise have started at 000
+        assertEquals("Game_001", firstId);
     }
 
-    // All the lovely tedious getters and setters
     @Test
     void testGetCaseId(){
         controller.startGame();
@@ -76,5 +76,117 @@ public class GameControllerTest {
         Question question = new Question("Science", 200, "TestContent", options, "A");
         controller.setQuestion(question);
         assertEquals(question, controller.getQuestion());
+    }
+
+    @Test
+    void testMultipleGamesIncrementCaseId(){
+        controller.startGame();
+        String id1 = controller.getCaseId();
+
+        GameController.reset();
+        controller = GameController.getInstance();
+        controller.startGame();
+        String id2 = controller.getCaseId();
+
+        assertEquals("Game_001", id1);
+        assertEquals("Game_001", id2);
+    }
+
+    @Test
+    void testSetQuestionsAndGetQuestions(){
+        QuestionList questions = new QuestionList();
+        HashMap<String,String> options = new HashMap<>();
+        options.put("A","a");
+        Question q = new Question("Test", 100, "Q", options, "A");
+        questions.addQuestion(q);
+
+        controller.setQuestions(questions);
+        assertNotNull(controller.getQuestions());
+        assertEquals(1, controller.getQuestions().getQuestionArray().size());
+    }
+
+    @Test
+    void testGetPlayersNull(){
+        assertNull(controller.getPlayers());
+    }
+
+    @Test
+    void testCategoryInitiallyNull(){
+        assertNull(controller.getCategory());
+    }
+
+    @Test
+    void testQuestionInitiallyNull(){
+        assertNull(controller.getQuestion());
+    }
+
+    @Test
+    void testQuestionsInitiallyNull(){
+        assertNull(controller.getQuestions());
+    }
+
+    @Test
+    void testCaseIdBeforeStart(){
+        assertNull(controller.getCaseId());
+    }
+
+    @Test
+    void testSetCategoryNull(){
+        controller.setCategory("Test");
+        controller.setCategory(null);
+        assertNull(controller.getCategory());
+    }
+
+    @Test
+    void testSetQuestionNull(){
+        HashMap<String,String> options = new HashMap<>();
+        options.put("A","a");
+        Question q = new Question("Test", 100, "Q", options, "A");
+        controller.setQuestion(q);
+        controller.setQuestion(null);
+        assertNull(controller.getQuestion());
+    }
+
+
+    @Test
+    void testControllerStateAfterReset(){
+        controller.startGame();
+        QuestionList questions = new QuestionList();
+        controller.setQuestions(questions);
+        controller.setCategory("Test");
+
+        GameController.reset();
+        controller = GameController.getInstance();
+
+        assertNull(controller.getCaseId());
+        assertNull(controller.getCategory());
+        assertNull(controller.getQuestions());
+    }
+
+    @Test
+    void testMultipleQuestionsInController(){
+        QuestionList questions = new QuestionList();
+        HashMap<String,String> options = new HashMap<>();
+        options.put("A","a");
+        options.put("B","b");
+
+        questions.addQuestion(new Question("Cat1", 100, "Q1", options, "A"));
+        questions.addQuestion(new Question("Cat1", 200, "Q2", options, "B"));
+        questions.addQuestion(new Question("Cat2", 300, "Q3", options, "A"));
+
+        controller.setQuestions(questions);
+        assertEquals(3, controller.getQuestions().getQuestionArray().size());
+    }
+
+    @Test
+    void testControllerQuestionCategorySync(){
+        HashMap<String,String> options = new HashMap<>();
+        options.put("A","a");
+        Question q = new Question("Science", 100, "Q", options, "A");
+
+        controller.setCategory("Science");
+        controller.setQuestion(q);
+
+        assertEquals(controller.getCategory(), q.getCategory());
     }
 }

@@ -93,10 +93,10 @@ public class GameEventLogTest {
     void testSetTimestamp(){
         GameEventLog log = new GameEventLog("Game_001", "Player1", "Test");
         String timestamp = log.getTimestamp();
-        log.setTimestamp();
         assertNotNull(timestamp);
         try{
-            Thread.sleep(2000);     // just in case timestamps are created too close tgt
+            Thread.sleep(2000);
+            log.setTimestamp();
             String newTimestamp = log.getTimestamp();
             assertFalse(timestamp.equalsIgnoreCase(newTimestamp));
         } catch (InterruptedException e){

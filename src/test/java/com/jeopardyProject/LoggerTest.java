@@ -4,8 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import com.jeopardyProject.Game.Logs.GameEventLog;
 import com.jeopardyProject.Game.Logs.Logger;
+import com.jeopardyProject.Game.Player;
 
 public class LoggerTest {
     private Logger logger;
@@ -59,12 +62,16 @@ public class LoggerTest {
 
     @Test
     void testInitTurnReport(){
-        logger.initTurnReport();
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(new Player("Alice"));
+        logger.initTurnReport("Game_001", players);
     }
 
     @Test
     void testGenerateTurnReport(){
-        String filename = logger.generateTurnReport();
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(new Player("Alice"));
+        String filename = logger.generateTurnReport(players);
         assertNotNull(filename);
         assertTrue(filename.endsWith(".txt"));
     }
@@ -78,8 +85,10 @@ public class LoggerTest {
 
     @Test
     void testTurnReportFileNameExpected(){
-        logger.initTurnReport();
-        String filename = logger.generateTurnReport();
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(new Player("Alice"));
+        logger.initTurnReport("Game_001", players);
+        String filename = logger.generateTurnReport(players);
         assertEquals("TurnReport.txt", filename);
     }
 
@@ -181,10 +190,12 @@ public class LoggerTest {
     void testGenerateReportsWithoutException(){
         GameEventLog log = new GameEventLog("Game_001", "Player1", "Test");
         logger.log(log);
-        
-        String turnReport = logger.generateTurnReport();
+
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(new Player("Player1"));
+        String turnReport = logger.generateTurnReport(players);
         String logReport = logger.generateLogReport();
-        
+
         assertNotNull(turnReport);
         assertNotNull(logReport);
     }

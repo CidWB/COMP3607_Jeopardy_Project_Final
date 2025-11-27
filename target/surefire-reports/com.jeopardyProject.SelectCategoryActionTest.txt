@@ -1,20 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.jeopardyProject.SelectCategoryActionTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! -- in com.jeopardyProject.SelectCategoryActionTest
-com.jeopardyProject.SelectCategoryActionTest.testSelectCategoryMatchesStartOfWord -- Time elapsed: 0.002 s <<< ERROR!
-java.lang.NullPointerException
-	at com.jeopardyProject.Game.Command.SelectCategoryAction.execute(SelectCategoryAction.java:13)
-	at com.jeopardyProject.SelectCategoryActionTest.testSelectCategoryMatchesStartOfWord(SelectCategoryActionTest.java:38)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-
-com.jeopardyProject.SelectCategoryActionTest.testSelectCategoryNoMatch -- Time elapsed: 0 s <<< ERROR!
-java.lang.NullPointerException
-	at com.jeopardyProject.Game.Command.SelectCategoryAction.execute(SelectCategoryAction.java:13)
-	at com.jeopardyProject.SelectCategoryActionTest.testSelectCategoryNoMatch(SelectCategoryActionTest.java:45)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in com.jeopardyProject.SelectCategoryActionTest
