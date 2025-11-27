@@ -1,0 +1,4 @@
+mvn dependency:resolve
+mvn clean compile
+mvn exec:java "-Dexec.mainClass=com.jeopardyProject.GameRunner"
+mvn clean compile exec:java "-Dexec.mainClass=com.jeopardyProject.GameRunner"
