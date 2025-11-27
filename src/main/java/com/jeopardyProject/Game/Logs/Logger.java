@@ -290,9 +290,9 @@ public class Logger{
                 String correctAnswer = this.log.getQuestion().getValueGivenKey(this.log.getAnswer());
                 writer.write("Answer: " + correctAnswer + " - ");
                 if(this.log.getResult()==true)
-                    writer.write("Correct (+" + this.log.getValue() + " pts");
+                    writer.write("Correct (+" + this.log.getValue() + " pts)");
                 else
-                    writer.write("Incorrect (-" + this.log.getValue() + " pts");
+                    writer.write("Incorrect (-" + this.log.getValue() + " pts)");
 
                 writer.newLine();
                 writer.write("Score after turn:" + this.log.getPlayerId() + " = " + this.log.getNewScore());
