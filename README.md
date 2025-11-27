@@ -13,6 +13,7 @@ resource folder or their absolute path can be used as
 input when prompted.
 
 Use the following commands to setup the program:
+
 -> mvn dependency:resolve
 -> mvn clean compile exec:java "-Dexec.mainClass=com.jeopardyProject.GameRunner"
 -> mvn javadoc:javadoc

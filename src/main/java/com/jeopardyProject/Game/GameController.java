@@ -339,6 +339,7 @@ public class GameController {
                 if(nextPlayer != null && currPlayerId.equals(nextPlayer.getPlayerId()))
                     break;
             }
+            this.question.setIsAnswered(true);  // in case no one answered correctly
             turnNum++;
             if(!this.questions.hasQuestions()){
                 view.displayMessage("Congrats! You made it to the end of the game.");

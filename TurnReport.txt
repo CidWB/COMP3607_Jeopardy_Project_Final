@@ -1,28 +1,15 @@
-
-Final Scores:
-Alice: 0
-================================
-END OF REPORT
-
-Final Scores:
-Player1: 0
-================================
-END OF REPORT
 JEOPARDY PROGRAMMING GAME REPORT
 ================================
 Case ID: Game_001
-Players: Alice, 
-Gameplay Summary:
-================================JEOPARDY PROGRAMMING GAME REPORT
-================================
-Case ID: Game_001
-Players: Alice, 
+Players: cid, sarah, 
 Gameplay Summary:
 ================================
+
+Turn 1: cid selected File Handling for 100 pts
+Answer: stdio.h - Incorrect (-100 pts
+Score after turn:cid = -100
 Final Scores:
-Alice: 0
+cid: -100
+sarah: -100
 ================================
 END OF REPORT
-
-
-Turn 1: Player1 selected Science for 200 pts

@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.jeopardyProject.JsonFileReaderTest
--------------------------------------------------------------------------------
-Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 s -- in com.jeopardyProject.JsonFileReaderTest

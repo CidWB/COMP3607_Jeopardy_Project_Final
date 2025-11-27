@@ -1,1 +1,13 @@
-
+Case ID,Timestamp,Player ID,Event Type,Category,Value,Question,Answer,Result,Score
+Game_001,2025-11-27T11:12:25,System,Start Game,,0,,,true,0
+Game_001,2025-11-27T11:13:41,System,Load file,,0,,,true,0
+Game_001,2025-11-27T11:13:43,System,Select player count,,0,,2,true,0
+Game_001,2025-11-27T11:13:44,cid,Enter player name,,0,,,true,0
+Game_001,2025-11-27T11:13:46,sarah,Enter player name,,0,,,true,0
+Game_001,2025-11-27T11:13:49,cid,Select Category,File Handling,0,,,true,0
+Game_001,2025-11-27T11:13:51,cid,Select Question,File Handling,100,,,true,0
+Game_001,2025-11-27T11:13:54,cid,Answer Question,File Handling,100,Which header file is used for file I/O?,D,false,-100
+Game_001,2025-11-27T11:13:57,sarah,Answer Question,File Handling,100,,C,false,-100
+Game_001,2025-11-27T11:14:00,System,Generate report,,0,,,true,0
+Game_001,2025-11-27T11:14:00,System,Generate event log,,0,,,true,0
+Game_001,2025-11-27T11:14:00,System,Exit game,,0,,,true,0
