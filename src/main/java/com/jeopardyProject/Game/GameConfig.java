@@ -31,11 +31,14 @@ public class GameConfig {
                 }
                     
                 // else if(filepath.endsWith(".json")){
-
+                    // this.fileReader = new JsonFileReader(filepath);
+                    // success=true;
                 //}
-                //     this.fileReader = new JsonFileReader(filepath);
-                // else if(filepath.endsWith(".xml"))
+                //     
+                // else if(filepath.endsWith(".xml")){
                 //     this.fileReader = new XmlFileReader(filepath);
+                //}
+                
                 else 
                     throw new IllegalArgumentException("File format not supported.");
             } catch (Exception e) {
@@ -76,8 +79,10 @@ public class GameConfig {
                 new GameEventLog(this.caseId, GameConfig.playerId, "Select player count")
                 .setAnswer("" + this.numPlayers)
             );
-        else
+        else{
             throw new IllegalArgumentException("Number of players must be 2-4.");
+        }
+            
 
     }
     
@@ -90,6 +95,7 @@ public class GameConfig {
                 new GameEventLog(this.caseId, GameConfig.playerId, "Select player count")
                 .setResult(false)
             );
+            System.exit(0);
             return null;
         }
         
@@ -97,7 +103,7 @@ public class GameConfig {
         String playerId;
 
         for(int i=1; i<=this.numPlayers; i++){
-            System.out.print("Enter player" + i + " name:");
+            System.out.print("Enter player" + i + " name: ");
             playerId = scanner.nextLine();
             players.addPlayer(playerId);
             // System.out.println("");

@@ -1,6 +1,7 @@
 package com.jeopardyProject.Game;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 
 import com.jeopardyProject.Game.State.*;
 import com.jeopardyProject.Game.Command.*;
@@ -10,6 +11,14 @@ public class PlayerList {
 
     public PlayerList(int numPlayers){
         this.players = new ArrayDeque<>(numPlayers);
+    }
+
+    public ArrayList<String> getPlayerNames(){
+        ArrayList<String> playerNames = new ArrayList<>();
+        for(Player player : this.players){
+            playerNames.add(player.getPlayerId());
+        }
+        return playerNames;
     }
 
     public void addPlayer(String playerId){
@@ -26,7 +35,7 @@ public class PlayerList {
         return this.players.peek();
     }
 
-    public void selectCategory(String input){
+    public void selectCategory(String input){   // works
         Player current = getCurrentPlayer();
         current.setState(new SelectCategoryState());
         current.setAction(new SelectCategoryAction());
@@ -35,6 +44,7 @@ public class PlayerList {
 
     public void selectQuestion(String input){
         Player current = getCurrentPlayer();
+        System.out.println("Player: "+ current.getPlayerId());
         current.setState(new SelectQuestionState());
         current.setAction(new SelectQuestionAction());
         current.doAction(input);
@@ -50,10 +60,15 @@ public class PlayerList {
     public void endTurn(int value, boolean correct){
         int score = getCurrentPlayer().getScore();
         
-        if(correct)
-            getCurrentPlayer().setScore(score + value);    // award points
-        else
-            getCurrentPlayer().setScore(score - value);    // deduct points
+        if(correct){
+            getCurrentPlayer().setScore(score + value);
+            System.out.println("Correct!");
+        }
+        else{
+            getCurrentPlayer().setScore(score - value);
+            System.out.println("Not quite.");
+        }
+            
         
         switchPlayer();
     }

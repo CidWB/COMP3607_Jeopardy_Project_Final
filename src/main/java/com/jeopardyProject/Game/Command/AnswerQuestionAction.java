@@ -9,7 +9,7 @@ public class AnswerQuestionAction implements Action{
     @Override
     public void execute(String input){
         Question question = controller.getQuestion();
-        if(input.toUpperCase() == question.getRightAnswer().toUpperCase())
+        if(input.equalsIgnoreCase(question.getRightAnswer()))
             question.setIsAnswered(true);
     }
 }

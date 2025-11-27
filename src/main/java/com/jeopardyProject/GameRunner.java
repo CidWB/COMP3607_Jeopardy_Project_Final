@@ -11,10 +11,7 @@ public class GameRunner {
         controller.setupGame();
         
         System.out.println("Game has started. Type 'QUIT' at any time to exit.");
-        // controller.playGame();
-        // controller.exitGame();
-        System.out.println("Thanks for playing!");
-
-
+        controller.playGame();
+        controller.exitGame();
     }
 }

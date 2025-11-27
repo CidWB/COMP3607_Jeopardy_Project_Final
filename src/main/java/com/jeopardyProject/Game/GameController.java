@@ -2,7 +2,6 @@ package com.jeopardyProject.Game;
 
 import java.util.Scanner;
 
-import com.jeopardyProject.Game.Player;
 import com.jeopardyProject.Game.Logs.GameEventLog;
 import com.jeopardyProject.Game.Logs.Logger;
 
@@ -16,10 +15,9 @@ public class GameController {
     private QuestionList questions;
     private String category;
     private Question question;
-    private boolean questionAnswered;
     private PlayerList players;
     private Player currentPlayer;
-    private int turnNum;
+    private int turnNum = 1;    // for turnReport file
 
     private GameController(){}
 
@@ -30,7 +28,7 @@ public class GameController {
     }
 
     public void startGame(){
-        this.caseId = this.caseId + "001";  // figure out how to increment with each game
+        this.caseId = this.caseId + "001";
         this.config = new GameConfig(this.caseId);
         logger.log(
             new GameEventLog(this.caseId, GameController.playerId, "Start Game")
@@ -45,16 +43,24 @@ public class GameController {
     }
 
     private String getUserInput(){
-        String input = scanner.nextLine().toUpperCase();
-        if (input == "QUIT"){
+        String input = scanner.nextLine().trim();
+        if ("QUIT".equalsIgnoreCase(input)){
             exitGame();
-            return null;    // maybe not necessary
+            return null;
         }
-        return input;
+        return input.toUpperCase();
+    }
+
+    public String getCaseId(){
+        return this.caseId;
     }
 
     public QuestionList getQuestions(){
         return this.questions;
+    }
+
+    public PlayerList getPlayers(){
+        return this.players;
     }
 
     public void setCategory(String category){
@@ -73,15 +79,14 @@ public class GameController {
         return this.question;
     }
 
-    public void setQuestionAnswered(boolean bool){
-        this.questionAnswered = bool;
-    }
-
     public void playGame(){
         String input;
+        String currPlayerId;
+        logger.initTurnReport();        // doesn't work but doesn't break program
 
         while (true){
             this.currentPlayer = this.players.getCurrentPlayer();
+            currPlayerId = this.currentPlayer.getPlayerId();
             this.questions.display();       // select category
             System.out.println("Current player: " + this.currentPlayer.getPlayerId());
             System.out.println("Choose a Category. (You may input only the first word)");
@@ -94,65 +99,57 @@ public class GameController {
 
             System.out.println("Choose a value.");
             input = getUserInput();
+            System.out.println("Value chosen");
             this.players.selectQuestion(input); 
             logger.log(
                 new GameEventLog(this.caseId, currentPlayer.getPlayerId(), "Select Question")
                 .setCategory(this.category)
-                .setValue(this.question.getValue())
+                .setValue(Integer.valueOf(input)) // check
             );
+            //logger.addReportQuestion(turnNum);
 
             System.out.println("The question is: " + this.question.getContent());
             System.out.println("Select an option from the following:");
             this.question.printOptions();
             input = getUserInput();
             this.players.answerQuestion(input);
-
-            this.players.endTurn(this.question.getValue(), this.questionAnswered);
+            this.players.endTurn(this.question.getValue(), this.question.getIsAnswered());
+            
             logger.log(
             new GameEventLog(this.caseId, this.currentPlayer.getPlayerId(), "Answer Question")
             .setCategory(this.category)
             .setValue(this.question.getValue())
-            .setAnswerResultScore(input, this.questionAnswered, this.currentPlayer.getScore())   // currentPlayer not updated yet
+            .setAnswerResultScore(input, this.question.getIsAnswered(), this.currentPlayer.getScore())   // currentPlayer not updated yet
             );
+            //logger.addReportAnswer();
 
-            while(!this.questionAnswered){
+            while(!this.question.getIsAnswered()){
                 this.currentPlayer = players.getCurrentPlayer();        // players.endTurn() switches out other player
+                System.out.println("Current player: " + this.currentPlayer.getPlayerId());
+                System.out.println("Input your answer:");
+                input = getUserInput();
+                this.players.answerQuestion(input);
+                this.players.endTurn(this.question.getValue(), this.question.getIsAnswered());
+                
+                logger.log(
+                new GameEventLog(this.caseId, this.currentPlayer.getPlayerId(), "Answer Question")
+                .setCategory(this.category)
+                .setValue(this.question.getValue())
+                .setAnswerResultScore(input, this.question.getIsAnswered(), this.currentPlayer.getScore())   // currentPlayer not updated yet
+                );
+                logger.addReportAnswer();
+                
+                if(currPlayerId == this.players.getCurrentPlayer().getPlayerId())   // will only happen after everyone has gone
+                    break;
             }
-            
-            
-
+            turnNum++;
+            if(!this.questions.hasQuestions()){
+                System.out.println("Congrats! You made it to the end of the game.");
+                exitGame();
+            }
         }
     }
-
-    /*
-    GAME LOOP FOR 1 TURN
-    
-
-    while (input != "QUIT" || all questions not answered){      // build turn
-        playerList.selectCategory();{
-            player.setState()
-            player.request()
-        }
-        logger.log()
-
-        player.selectQuestion();
-        logger.log()
-        logger.addReportQuestion()
-
-        while (count <= numPlayers || question.getIsAnswered == false){    // either loop back to first player or answer correctly
-            player.answerQuestion();
-            player.updateScore();
-            logger.log()
-            logger.addReportAnswer()
-            changePlayer();
-            count ++;       // starts at 1
-        }   
-        question.setIsAnswered(true);   
-    }
-    
-    */
-    
-
+  
     public void exitGame(){
         String txtFileName = logger.generateTurnReport();
         logger.log(
@@ -169,5 +166,7 @@ public class GameController {
 
         System.out.println("The turn-by-turn summary report can be found in the file " + txtFileName);
         System.out.println("The game event log report can be found in the file " + csvFileName);
+        System.out.println("Thanks for playing!");
+        System.exit(0);
     }
 }

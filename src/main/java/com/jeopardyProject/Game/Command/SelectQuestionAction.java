@@ -13,9 +13,11 @@ public class SelectQuestionAction implements Action{
         String category = controller.getCategory();
         ArrayList<Question> sortedQuestions = controller.getQuestions().getQuestionsByCategory(category);
         for (Question question : sortedQuestions){
-            if (Integer.valueOf(input) == question.getValue())
+            if (Integer.valueOf(input).intValue() == question.getValue()){
                 System.out.println("Value selected: " + input.toLowerCase());
                 controller.setQuestion(question);
+                return;
+            } 
         }
     }
 }

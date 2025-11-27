@@ -1,14 +1,19 @@
 package com.jeopardyProject.Game.Logs;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+
+import com.jeopardyProject.Game.GameController;
+
 // Singleton class
-public class Logger {  
+public class Logger{  
     private static Logger logger; 
+    private static GameController controller = GameController.getInstance();
     private static String csvFileName = "LogReport.csv";
     private static String txtFileName = "TurnReport.txt"; 
     private File csvFile;
     private File txtFile;
+    BufferedWriter writer; 
     private GameEventLog log;
 
     private Logger(){
@@ -49,18 +54,29 @@ public class Logger {
 
     // Turn methods
     public void initTurnReport(){
-        // write initial details eg:
-        /*
-        JEOPARDY PROGRAMMING GAME REPORT
-        ================================
+        try{
+            writer = new BufferedWriter(new FileWriter("output.txt"));
+            writer.write("JEOPARDY PROGRAMMING GAME REPORT");
+            writer.newLine();
+            writer.write("================================");
+            writer.newLine();
+            writer.write("Case ID: " + controller.getCaseId());
+            writer.newLine();
 
-        Case ID: GAME001
+            ArrayList<String> playerNames = controller.getPlayers().getPlayerNames();
+            StringBuilder sb = new StringBuilder();
+            for(String name : playerNames){
+                sb.append(name + ", ");
+            }
+            writer.write("Players: " + sb);
 
-        Players: Alice, Bob
+            writer.write("Gameplay Summary:");
+            writer.newLine();
+            writer.write("================================");
 
-        Gameplay Summary:
-        -----------------
-        */
+        } catch (IOException e) {
+            System.out.println("Report.txt could not be opened.");
+        }
     }
 
     public void addReportQuestion(int turn){
@@ -107,9 +123,6 @@ public class Logger {
     */
     }
 
-    public void printLog(){
-        this.log.printLog();
-    }
 
 
     // // Logs have different signatures depending on where logger is invoked

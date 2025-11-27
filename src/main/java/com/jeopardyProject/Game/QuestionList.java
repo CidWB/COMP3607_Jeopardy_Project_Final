@@ -20,7 +20,10 @@ public class QuestionList {
     public ArrayList<Question> getQuestionsByCategory(String category){
         ArrayList<Question> newQuestions = new ArrayList<>();
         for(Question question : this.questions){
-            if(question.getCategory().toLowerCase() == category)
+            if (question == null)   // just in case
+                continue;
+
+            if (question.getCategory().equalsIgnoreCase(category))
                 newQuestions.add(question);
         }
         return newQuestions;
@@ -57,7 +60,6 @@ public class QuestionList {
             }
             inner.put(value, q);
         }
-        System.out.println("Question grid created.");
     }
 
     private int[] formatGrid(){

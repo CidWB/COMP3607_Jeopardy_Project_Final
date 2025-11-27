@@ -13,9 +13,11 @@ public class SelectCategoryAction implements Action{
         ArrayList<Question> questions = controller.getQuestions().getQuestionArray();
         for (Question question : questions){
             String category = question.getCategory().toUpperCase();
-            if (category.startsWith(input))
+            if (category.startsWith(input)){
                 System.out.println("Category selected: " + category.toLowerCase());
-                controller.setCategory(category);
+                controller.setCategory(question.getCategory());
+                return;
+            }
         }
     }
 }
