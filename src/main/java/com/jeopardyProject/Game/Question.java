@@ -34,6 +34,10 @@ public class Question {
     public HashMap<String, String> getOptions(){
         return this.options;
     }
+
+    public String getValueGivenKey(String key){
+        return this.options.get(key);
+    }
     
     public String getRightAnswer() {
         return this.correctAnswer;
@@ -45,7 +49,7 @@ public class Question {
     
     public void setIsAnswered(boolean answered) {
         this.isAnswered = answered;
-    }   
+    } 
 
     public void printOptions(){
         for (String option: options.keySet()) {

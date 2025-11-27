@@ -10,14 +10,22 @@ import com.opencsv.*;
 
 public class CsvFileReader extends FileReaderTemplate{
     private CSVReader csvReader;
+    private String filepath;
 
-
-    public CsvFileReader(String filepath) throws FileNotFoundException{
-        this.csvReader = new CSVReader(new FileReader(filepath));  
+    @Override
+    public QuestionList readFile(String filepath) throws FileNotFoundException{
+        this.filepath = filepath;
+        initFileReader();
+        return buildQuestionList();
     }
 
     @Override
-    public QuestionList readFile(){
+    public void initFileReader() throws FileNotFoundException{
+        this.csvReader = new CSVReader(new FileReader(this.filepath)); 
+    }
+
+    @Override
+    public QuestionList buildQuestionList(){
         QuestionList questions = new QuestionList();
         String[] nextRecord;
         HashMap<String, String> options;

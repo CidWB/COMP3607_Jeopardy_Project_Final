@@ -6,11 +6,12 @@ import com.jeopardyProject.Game.Logs.GameEventLog;
 import com.jeopardyProject.Game.Logs.Logger;
 
 public class GameController {
-    private static Logger logger = Logger.getInstance(); // handles log generation
+    private static Logger logger = Logger.getInstance();
     private static GameController controller; 
     private static Scanner scanner = new Scanner(System.in);
+    private static int gameCount = 0; 
     private GameConfig config;
-    private String caseId = "Game_";
+    private String caseId;
     private static String playerId = "System";
     private QuestionList questions;
     private String category;
@@ -28,7 +29,9 @@ public class GameController {
     }
 
     public void startGame(){
-        this.caseId = this.caseId + "001";
+        gameCount++;    // increments for each new game
+        String gameNumber = String.format("%03d", gameCount);   // formats to 3 digits
+        this.caseId = "Game_" + gameNumber;
         this.config = new GameConfig(this.caseId);
         logger.log(
             new GameEventLog(this.caseId, GameController.playerId, "Start Game")
@@ -82,12 +85,12 @@ public class GameController {
     public void playGame(){
         String input;
         String currPlayerId;
-        logger.initTurnReport();        // doesn't work but doesn't break program
+        logger.initTurnReport();
 
         while (true){
             this.currentPlayer = this.players.getCurrentPlayer();
             currPlayerId = this.currentPlayer.getPlayerId();
-            this.questions.display();       // select category
+            this.questions.display(); 
             System.out.println("Current player: " + this.currentPlayer.getPlayerId());
             System.out.println("Choose a Category. (You may input only the first word)");
             input = getUserInput();
@@ -106,7 +109,7 @@ public class GameController {
                 .setCategory(this.category)
                 .setValue(Integer.valueOf(input)) // check
             );
-            //logger.addReportQuestion(turnNum);
+            logger.addReportQuestion(turnNum);
 
             System.out.println("The question is: " + this.question.getContent());
             System.out.println("Select an option from the following:");
@@ -117,11 +120,12 @@ public class GameController {
             
             logger.log(
             new GameEventLog(this.caseId, this.currentPlayer.getPlayerId(), "Answer Question")
+            .setQuestion(this.question)
             .setCategory(this.category)
             .setValue(this.question.getValue())
             .setAnswerResultScore(input, this.question.getIsAnswered(), this.currentPlayer.getScore())   // currentPlayer not updated yet
             );
-            //logger.addReportAnswer();
+            logger.addReportAnswer();
 
             while(!this.question.getIsAnswered()){
                 this.currentPlayer = players.getCurrentPlayer();        // players.endTurn() switches out other player
@@ -135,7 +139,7 @@ public class GameController {
                 new GameEventLog(this.caseId, this.currentPlayer.getPlayerId(), "Answer Question")
                 .setCategory(this.category)
                 .setValue(this.question.getValue())
-                .setAnswerResultScore(input, this.question.getIsAnswered(), this.currentPlayer.getScore())   // currentPlayer not updated yet
+                .setAnswerResultScore(input, this.question.getIsAnswered(), this.currentPlayer.getScore()) 
                 );
                 logger.addReportAnswer();
                 

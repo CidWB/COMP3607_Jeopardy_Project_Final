@@ -3,6 +3,9 @@ package com.jeopardyProject.Game.Logs;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+
+import com.jeopardyProject.Game.Question;
+
 import java.time.ZoneId;
 
 public class GameEventLog {
@@ -11,6 +14,7 @@ public class GameEventLog {
     private String action;
     private static DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
     private String timestamp;
+    private Question question;
     private String category;
     private int value;
     private String answer;
@@ -34,6 +38,11 @@ public class GameEventLog {
 
     public GameEventLog setTimestamp(){
         this.timestamp = createTimestamp();
+        return this;
+    }
+
+    public GameEventLog setQuestion(Question question){
+        this.question = question;
         return this;
     }
 
@@ -62,6 +71,46 @@ public class GameEventLog {
         this.result = result;
         this.newScore = newScore;
         return this;
+    }
+
+    public String getCaseId(){
+        return this.caseId;
+    }
+
+    public String getPlayerId(){
+        return this.playerId;
+    }
+
+    public String getAction(){
+        return this.action;
+    }
+
+    public String getTimestamp(){
+        return this.timestamp;
+    }
+
+    public Question getQuestion(){
+        return this.question;
+    }
+
+    public String getCategory(){
+        return this.category;
+    }
+
+    public int getValue(){
+        return this.value;
+    }
+
+    public String getAnswer(){
+        return this.answer;
+    }
+
+    public boolean getResult(){
+        return this.result;
+    }
+
+    public int getNewScore(){
+        return this.newScore;
     }
 
     public void printLog(){

@@ -13,14 +13,6 @@ public class PlayerList {
         this.players = new ArrayDeque<>(numPlayers);
     }
 
-    public ArrayList<String> getPlayerNames(){
-        ArrayList<String> playerNames = new ArrayList<>();
-        for(Player player : this.players){
-            playerNames.add(player.getPlayerId());
-        }
-        return playerNames;
-    }
-
     public void addPlayer(String playerId){
         this.players.add(new Player(playerId));
     }
@@ -33,6 +25,10 @@ public class PlayerList {
 
     public Player getCurrentPlayer(){
         return this.players.peek();
+    }
+
+    public ArrayList<Player> getAllPlayers(){
+        return new ArrayList<>(this.players);
     }
 
     public void selectCategory(String input){   // works
@@ -57,7 +53,7 @@ public class PlayerList {
         current.doAction(input);
     }
 
-    public void endTurn(int value, boolean correct){
+    public void endTurn(int value, boolean correct){    // don't need separate Scorer class since code is very minimal
         int score = getCurrentPlayer().getScore();
         
         if(correct){

@@ -26,19 +26,17 @@ public class GameConfig {
             this.filepath = scanner.nextLine();
             try{
                 if(filepath.endsWith(".csv")){
-                    this.fileReader = new CsvFileReader(filepath);
+                    this.fileReader = new CsvFileReader();
                     success=true;
                 }
-                    
-                // else if(filepath.endsWith(".json")){
-                    // this.fileReader = new JsonFileReader(filepath);
-                    // success=true;
-                //}
-                //     
-                // else if(filepath.endsWith(".xml")){
-                //     this.fileReader = new XmlFileReader(filepath);
-                //}
-                
+                else if(filepath.endsWith(".json")){
+                    this.fileReader = new JsonFileReader();
+                    success=true;
+                }
+                else if(filepath.endsWith(".xml")){
+                    this.fileReader = new XmlFileReader();
+                    success=true;
+                }
                 else 
                     throw new IllegalArgumentException("File format not supported.");
             } catch (Exception e) {
@@ -59,7 +57,17 @@ public class GameConfig {
             return null;
         }
 
-        QuestionList questions = this.fileReader.readFile();
+        QuestionList questions;
+        try{
+            questions = this.fileReader.readFile(this.filepath);
+        } catch (java.io.FileNotFoundException e){
+            System.err.println("Error: file not found - " + this.filepath);
+            logger.log(
+                new GameEventLog(this.caseId, GameConfig.playerId, "Load file")
+                .setResult(false)
+            );
+            return null;
+        }
         logger.log(
             new GameEventLog(this.caseId, GameConfig.playerId, "Load file")
             .setResult(true)
@@ -79,11 +87,8 @@ public class GameConfig {
                 new GameEventLog(this.caseId, GameConfig.playerId, "Select player count")
                 .setAnswer("" + this.numPlayers)
             );
-        else{
+        else
             throw new IllegalArgumentException("Number of players must be 2-4.");
-        }
-            
-
     }
     
     public PlayerList addPlayers(){
@@ -106,7 +111,6 @@ public class GameConfig {
             System.out.print("Enter player" + i + " name: ");
             playerId = scanner.nextLine();
             players.addPlayer(playerId);
-            // System.out.println("");
             logger.log(
                 new GameEventLog(this.caseId, playerId, "Enter player name")
                 .setResult(true)
@@ -114,6 +118,4 @@ public class GameConfig {
         }
         return players;
     }
-
-
 }

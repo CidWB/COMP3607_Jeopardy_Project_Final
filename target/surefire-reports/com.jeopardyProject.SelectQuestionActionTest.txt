@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: com.jeopardyProject.SelectQuestionActionTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! -- in com.jeopardyProject.SelectQuestionActionTest
+com.jeopardyProject.SelectQuestionActionTest.testSelectNullQuestion -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at com.jeopardyProject.Game.Command.SelectQuestionAction.execute(SelectQuestionAction.java:14)
+	at com.jeopardyProject.SelectQuestionActionTest.testSelectNullQuestion(SelectQuestionActionTest.java:42)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+
+com.jeopardyProject.SelectQuestionActionTest.testSelectQuestionByValue -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException
+	at com.jeopardyProject.Game.Command.SelectQuestionAction.execute(SelectQuestionAction.java:14)
+	at com.jeopardyProject.SelectQuestionActionTest.testSelectQuestionByValue(SelectQuestionActionTest.java:34)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+

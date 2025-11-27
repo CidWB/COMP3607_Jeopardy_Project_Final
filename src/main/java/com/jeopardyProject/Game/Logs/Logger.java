@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 import com.jeopardyProject.Game.GameController;
+import com.jeopardyProject.Game.Player;
 
 // Singleton class
 public class Logger{  
@@ -55,21 +56,25 @@ public class Logger{
     // Turn methods
     public void initTurnReport(){
         try{
-            writer = new BufferedWriter(new FileWriter("output.txt"));
+            if(writer==null)
+                writer = new BufferedWriter(new FileWriter("TurnReport.txt"));
             writer.write("JEOPARDY PROGRAMMING GAME REPORT");
             writer.newLine();
             writer.write("================================");
             writer.newLine();
-            writer.write("Case ID: " + controller.getCaseId());
+
+            if(controller!=null)
+                writer.write("Case ID: " + controller.getCaseId());
+            else
+                writer.write("Case ID: GAME_001");
             writer.newLine();
 
-            ArrayList<String> playerNames = controller.getPlayers().getPlayerNames();
+            ArrayList<Player> players = controller.getPlayers().getAllPlayers();
             StringBuilder sb = new StringBuilder();
-            for(String name : playerNames){
-                sb.append(name + ", ");
+            for(Player player : players){
+                sb.append(player.getPlayerId() + ", ");
             }
             writer.write("Players: " + sb);
-
             writer.write("Gameplay Summary:");
             writer.newLine();
             writer.write("================================");
@@ -80,29 +85,67 @@ public class Logger{
     }
 
     public void addReportQuestion(int turn){
-        // add current log as formatted string to .txt file
+        try{
+            if(writer==null)
+                writer = new BufferedWriter(new FileWriter("TurnReport.txt"));
+            writer.newLine();
+            writer.newLine();
+            writer.write("Turn " + turn + ": " + this.log.getPlayerId() + " selected " + this.log.getCategory() + " for " + this.log.getValue() + " pts");
+            writer.newLine();
+            writer.write("Question: " + this.log.getQuestion().getContent());
+            writer.newLine();
+        } catch (IOException e) {
+            System.out.println("Report.txt could not be opened for addReportQuestion.");
+        }
     }
 
     public void addReportAnswer(){
-        // add current log as formatted string to .txt file
+        try{
+            if(writer==null)
+                writer = new BufferedWriter(new FileWriter("TurnReport.txt"));
+            String correctAnswer = this.log.getQuestion().getValueGivenKey(this.log.getAnswer());
+            writer.write("Answer: " + correctAnswer + " - ");
+            if(this.log.getResult()==true)
+                writer.write("Correct (+" + this.log.getValue() + " pts");
+            else
+                writer.write("Incorrect (-" + this.log.getValue() + " pts");
+
+            writer.newLine();
+            writer.write("Score after turn:" + this.log.getPlayerId() + " = " + this.log.getNewScore());
+
+        } catch (IOException e) {
+            System.out.println("Report.txt could not be opened for addReportAnswer().");
+        }
     }
 
     public String generateTurnReport(){
-        // write final details eg:
-        /*
-        Final Scores:
-        Alice: 500
-        Bob: 700
-        ================================
-        END OF REPORT
-        */
-        
-        // close file
+        try{
+            if(writer==null)
+                writer = new BufferedWriter(new FileWriter("TurnReport.txt"));
+            writer.newLine();
+            writer.write("Final Scores:");
+            writer.newLine();
+
+            ArrayList<Player> players = controller.getPlayers().getAllPlayers();
+            for (Player player : players) {
+                writer.write(player.getPlayerId() + ": " + player.getScore());
+                writer.newLine();
+            }
+
+            writer.write("================================");
+            writer.newLine();
+            writer.write("END OF REPORT");
+            writer.newLine();
+            writer.flush();
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println("Report.txt could not be written: " + e.getMessage());
+        }
         return Logger.txtFileName;
     }
     
     public String generateLogReport(){
-        // close file
         return Logger.csvFileName;
     }
 
